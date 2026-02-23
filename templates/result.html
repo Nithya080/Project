@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+    <h1 class="fade-in">Prediction Result</h1>
+    <div class="container">
+
+        <p><strong>Store ID:</strong> {{ store_id }}</p>
+        <p><strong>Category:</strong> {{ category }}</p>
+        <p><strong>Predicted Average Sales:</strong> {{ prediction }}</p>
+        <a href="/">
+            <button>Go Back</button>
+        </a>
+    </div>
+
+</body>
+</html>

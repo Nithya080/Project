@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sales Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h1 id="animated-title">Predict Your Sales</h1>
+
+<div class="container">
+    <h2>Enter Your Details</h2>
+
+    <form action="/predict" method="post">
+        <label>Store ID</label>
+        <input type="text" name="store_id" placeholder="e.g. 1,2,.." required>
+
+        <label>Product / Category</label>
+        <input type="text" name="category" placeholder="e.g. Dairy" required>
+
+        <label>Price Range</label>
+        <div class="range-group">
+            <input type="number" name="min_price" placeholder="Min Price" required>
+            <input type="number" name="max_price" placeholder="Max Price" required>
+        </div>
+
+        <button type="submit">Predict Sales</button>
+    </form>
+</div>
+
+<script>
+const title = document.getElementById("animated-title");
+const text = title.innerText;
+title.innerHTML = "";   // use innerHTML instead of innerText
+let i = 0;
+
+function animateTitle() {
+    if (i < text.length) {
+        if (text[i] === " ") {
+            title.innerHTML += "&nbsp;"; // force visible space
+        } else {
+            title.innerHTML += text[i];
+        }
+        i++;
+        setTimeout(animateTitle, 100);
+    }
+}
+
+animateTitle();
+</script>
+</body>
+</html>
